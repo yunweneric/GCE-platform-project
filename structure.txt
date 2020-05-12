@@ -1,0 +1,32 @@
+#SAMPLE CENTER NUMBER STRUCTURE
+results = {
+    "info": {
+        "Center number": 11001,
+        "Regist": 167,
+        "Sat for 2 or more Subjects": 149,
+        "Passed": 75,
+        "% Passed": 50.34,
+        "Sanctioned": 4,
+    },
+    "Passed In 5 Subjects":[
+        ["NAME1","Result", "grade"],
+        ["NAME2","Result", "grade"],
+        ["NAME3","Result", "grade"],
+    ],
+    "Passed In 4 Subjects":[
+        ["NAME1","Result", "grade"],
+        ["NAME2","Result", "grade"],
+        ["NAME3","Result", "grade"],
+    ],
+    "Passed In 3 Subjects":[
+        ["NAME1","Result", "grade"],
+        ["NAME2","Result", "grade"],
+        ["NAME3","Result", "grade"],
+    ],
+    "Passed In 2 Subjects":[
+        ["NAME1","Result", "grade"],
+        ["NAME2","Result", "grade"],
+        ["NAME3","Result", "grade"],
+    ],        
+}
+print(results)

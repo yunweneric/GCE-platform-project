@@ -22,4 +22,3 @@ A. Level students
 9. Best series for O level students going to L6
 
 10. School performance rank
-11. 

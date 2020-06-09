@@ -28,20 +28,28 @@ def Get_data(gce):
 
         #Using regex
         import re
-        Data = re.sub("\d+\.\d+[a-z]+\d+[A-Z]+[a-z]+", " ", Data)
+        Data = Data.replace("\n", "")
+        Data = re.sub(r"\d+.\d+of\d+\w+", "", Data)
+        # Data = re.sub(r"[A-Z]\d+", "", Data)
+        # Data = re.sub(r"\d+[a-z]", "", Data)
+
+
         
-        print(type(Data)) 
-        # f.write(Data+"\n")
+        Data = Data.replace("Centre No:  ", '\n\n\n\n"Centre No": ')
+        Data = Data.replace("Regist:", '\nRegist:')
+        Data = Data.replace("Sat for 2 or more Subjects:", '\nSat for 2 or more Subjects: ')
+        Data = Data.replace("Results of Successful Candidates In Order Of Merit", "")
+        Data = Data.replace("% Passed : ", '\n%Passed: ') 
+        Data = Data.replace(" Passed : ", '\nPassed: ')
+        Data = Data.replace("Sanctioned : ", '\nSanction: ')
+
+        # Replacing the Passed in x subjects section
+        Data = Data.replace("Passed In 5 Subjects: ", '\nPassed In 5 Subjects:')
+        Data = Data.replace("Passed In 4 Subjects: ", ' \n\nPassed In 4 Subjects: ')
+        Data = Data.replace("Passed In 3 Subjects: ", ' \n\nPassed In 3 Subjects: ')
+        Data = Data.replace("Passed In 2 Subjects: ", ' \n\nPassed In 2 Subjects: ')
+        
+        # print(Data) 
+        f.write(Data+"\n")
     f.close()
 Get_data("2019-algen.pdf")
-
-#================================================================================================================
-
-                                    #Working with text file
-
-#================================================================================================================
-# text = open("Algen.txt", "rb")
-# text_content = text.read()
-# for i in text_content: 
-#     text_content = text_content.decode(encoding = "utf-8")
-#     print(text_content)

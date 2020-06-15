@@ -14,12 +14,7 @@ results = {
         "NAME2": "Result",
         "NAME3": "Result",
     },
-    result {
-        stud
-        {
-            
-        }
-    }
+    
     "Passed In 4 Subjects":{
         "NAME" : "RESULT",
         "NAME1": "Result",

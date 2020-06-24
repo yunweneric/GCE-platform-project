@@ -1,9 +1,24 @@
+#=======================================================================================================================                    
+                    # APPROACH 
+
+        #1.0 Request the name with a prompt, or use common names
+        #1.1. Consider all the possible names, comma seperated names, names with hyphens
+        #1.2. concatenate name with regex for results to get a combined regex having name and results
+        #1.3. using the combined regex, seach for it and return the match which will contain both name and result
+        #1.4. splice out results and store in a variable
+        #1.5. Initialise an empty dictionary
+        #1.6. Push name and results to the dictionary in the form("NAME":"RESULTS")
+        #1.7. splice out results from main raw content so that we know there is completion
+#=======================================================================================================================
+
+
+
+
 # 1: Importing dependecies
 import PyPDF4
 
-
 def Get_data(gce):
-    # 2: Reading pdf
+    # 2: Reading pdf #1.3. splice out name and store in a variable
     Files = open(gce, 'rb')
 
     # 3: Loading files
@@ -16,23 +31,17 @@ def Get_data(gce):
     for i in range(content):
         # 4.2: Reading(looping through all pages)
         page = Loaded_pdf.getPage(i)
-
+    #1.3. splice out name and store in a variable
         # 4.3: Extracting raw data
         Raw_data = page.extractText()
 
         # 4.4: Replacing bannar
         Data = Raw_data.replace("2019 RESULTS: GCE ADVANCED LEVEL GENERAL", "")
 
-        # 4.5: Editing the name section
-        # Data = Data.replace("(", "")
-        # Data = Data.replace(")", ".")
-
-        # Using regex
+        # Reorganising work using Using regex and string methods
         import re
         Data = Data.replace("\n", "")
         Data = re.sub(r"\d+.\d+of\d+\w+", "", Data)
-        # Data = re.sub(r"[A-Z]\d+", "", Data)
-        # Data = re.sub(r"\d+[a-z]", "", Data)
         Data = Data.replace("Centre No:  ", '\n\n\n\n"Centre No": ')
         Data = Data.replace("Regist:", '\nRegist:')
         Data = Data.replace("Sat for 2 or more Subjects:", '\nSat for 2 or more Subjects: ')
@@ -50,114 +59,26 @@ def Get_data(gce):
         Data = re.sub(r"Passed In \d Subjects:\d+", "", Data)
         Data = Data.replace("(", " (")
 
-
-
-        # Data = Data.split(".")
-        # Data = Data.join("")
-
+        #Printing extracted data,
         print(Data)
-
-
-        # print("NDUMBI SHALOM MANKA'A" in Data)
-        # print(Data[1])
         # f.write(Data+"\n")
     # f.close()
 
-
-# FONKENG ESENDENGE GLEN-RODNEY (BIO-\W,?)? CHE-\W,?|PMS-\W,?|PHY-\W,?|ICT-\W,?|ECO-\W,?|FRE-\W,?|GEO-\W,?|HIS-\W,?|PHI-\W,?|LIT-\W,?|REL-\W,?|PMM-\W,?|FSN-\W,?|ENG-E\W,?"
-
-
     #Prompting name
     NameResult = input("What is the name: ")
+
+    #Concatenating name to regex for results
     NameResult = NameResult + " ([A-Z]+-[A-E],?)+"
+
+    # NameResult = NameResult + " +\s?([A-Z]+-([A-E],?))+"
+
+    #Printing out the combined regex before searching
     print((NameResult))
 
+    #Searching the combined regex in the extracted data
     NameResult = re.search(NameResult, Data)
+
     # print(type(NameResult))   
-
-
     print(NameResult);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        # approach2 
-
-        #demand the name, or use common names
-        #1.1. Consider all the possible names, comma seperated names, names with hyphens
-        #Or
-        #Automatically/ Dynamically find any pattern
-        #append the possible results seperated by or (|) example BIO-\W|,CHE-\W|,PMS-\W|,PHY-\W|,ICT-\W|ECO-\W|,FRE-\W|,GEO-\W|,HIS-\W|,PHI-\W|LIT-\W|,REL-\W|PMM-\W|,FSN-\W|,ENG-E\W
-        #pass this to a regex
-
-        #splice out name and store in a variable
-        #splice out results and store in a variable
-        #Initialise an empty dictionary
-        #Push name and results to a dictionary in the form("NAME":"RESULTS")
-        #Cut out results from main database so that we know there is completion
-
-
-
-
-
-
-
-
- 
-# FONKENG ESENDENGE GLEN-RODNEY BIO-B,CHE-C,PMS-C,PHY-E,ICT-C (1)TALONFO ZUEKO CURIE L ECO-E,FRE-E,GEO-E,HIS-C,PHI-D (2) 
-
-# TACHE JENIFER ANDUH BIO-C,CHE-B,PMS-A,PHY-C(1)MBONDE PAUL NKEZE ENG-D,LIT-D,HIS-B,PHI-B(
- 
-
-# NDI HARIETTE BONSAW BIO-B,CHE-E,FSN-B,PMS-D(3)MBI CHRISTABEL AKUM LIT-D,HIS-B,REL-C,PHI-D(4)NKENG NALDINE MANYI BIO-C,CHE-C,PMS-C,ICT-E(5)EYOME MAIRA BIO-B,CHE-E,FSN-B,PHY-E(6)FORZI DEFANG JOSHUA BIO-C,CHE-E,PMS-C,PHY-D(7)ATABONGAFAC DAVID AWUNG LIT-E,HIS-B,REL-E,PHI-D(8) 
-
-# NEDAN NDOME CORINE DANIELLE ECO-D,GEO-E,PMS-C(1)NGOE ELIZABETH ELOLE LIT-E,HIS-B,REL-E(2) 
-
-# NDUMBI SHALOM MANKA'A BIO-D,PMS-C(
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Get_data("2019-algen.pdf")
-
-
+#=======================================================================================================================

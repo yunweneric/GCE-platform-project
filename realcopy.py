@@ -95,35 +95,42 @@ def Get_data(gce):
     Finale_content = {}
 
     #Extract results from Finale_NameResult
-    # regex2 = "[A-Z]+-[A-E]"
     FinaleResult = re.search(r"([A-Z]+-[A-E],?)+", Finale_NameResult)
     FinaleResult = FinaleResult.group(0)
-    print(FinaleResult)
+    # print(FinaleResult)
 
-# FONKENG ESENDENGE GLEN-RODNEY BIO-B,CHE-C,PMS-C,PHY-E,ICT-C 
     #pushing name and result to the dictionary
     Finale_content[StudentName] = FinaleResult
+
+    subjects = FinaleResult.split(",")
+
+
+
+
+    displaypassed = "Passed in {num} subjects".format(num = len(subjects))
+    # len(subjects)
+
+
+
+    print('**************************************************')
+    print('**************************************************')
+    print('**************************************************')
+    print('**************************************************')
+    print('**************************************************')
+    print('**************************************************')
+
+    print('Processing')
+
+    print(displaypassed)
+
     print(Finale_content)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    print('**************************************************')
+    print('**************************************************')
+    print('**************************************************')
+    print('**************************************************')
+    print('**************************************************')
 
 
 

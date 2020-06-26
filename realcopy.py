@@ -107,7 +107,7 @@ def Get_data(gce):
 
 
 
-    displaypassed = "Passed in {num} subjects".format(num = len(subjects))
+    displaypassed = "Congratulations {name}. You Passed in {num} subjects which are {Resulthere}".format(name = StudentName, num = len(subjects), Resulthere = FinaleResult)
     # len(subjects)
 
 
@@ -121,9 +121,9 @@ def Get_data(gce):
 
     print('Processing')
 
+    print(Finale_content)
     print(displaypassed)
 
-    print(Finale_content)
 
 
     print('**************************************************')

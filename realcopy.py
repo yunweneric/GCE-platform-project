@@ -59,6 +59,7 @@ def Get_data(gce):
     Data = re.sub(r"Passed In \d Subjects: \d+", "", Data)
     Data = re.sub(r"Passed In \d Subjects:\d+", "", Data)
     Data = Data.replace("(", " (")
+    print(Data)
         # return Data;
 
 
@@ -67,6 +68,7 @@ def Get_data(gce):
 
     #Prompting name
     NameResult = input("What is the name: ")
+    StudentName = NameResult
 
     #Concatenating name to regex for results
     NameResult = "("+NameResult+").*?\(";
@@ -74,15 +76,58 @@ def Get_data(gce):
     # NameResult = NameResult + " +\s?([A-Z]+-([A-E],?))+"
 
     # Printing out the combined regex before searching
-    print('Sneak Preview of the RegExp')
-    print((NameResult))
+    # print('Sneak Preview of the RegExp')
+    # print((NameResult))
 
     #Searching the combined regex in the extracted data
-    print('Processing')
+    # print('Processing')
     NameResult = re.search(r""+NameResult, Data)
 
-    print('**************************************************')
-    print(NameResult.group(0)[:-1]) 
-    print('**************************************************')
+    # print('**************************************************')
+    Finale_NameResult = NameResult.group(0)[:-1]
+    print(Finale_NameResult)
+
+    # print(type(NameResult.group(0)[:-1]))
+
+    # print('**************************************************')
+
+    #Initialising dictionary to push data to
+    Finale_content = {}
+
+    #Extract results from Finale_NameResult
+    # regex2 = "[A-Z]+-[A-E]"
+    FinaleResult = re.search(r"([A-Z]+-[A-E],?)+", Finale_NameResult)
+    FinaleResult = FinaleResult.group(0)
+    print(FinaleResult)
+
+# FONKENG ESENDENGE GLEN-RODNEY BIO-B,CHE-C,PMS-C,PHY-E,ICT-C 
+    #pushing name and result to the dictionary
+    Finale_content[StudentName] = FinaleResult
+    print(Finale_content)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Get_data("2019-algen.pdf")
 #=======================================================================================================================

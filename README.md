@@ -24,4 +24,4 @@ A. Level students
 10. School performance rank
 
 ![GitHub Logo](./download.png)
-7GCE Landing page[](https://github.com/yunweneric/GCE-platform-project)
+7GCE Landing page[Link](https://github.com/yunweneric/GCE-platform-project)

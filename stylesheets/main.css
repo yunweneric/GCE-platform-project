@@ -152,11 +152,15 @@ input {
   border: none;
   border-bottom: 1px solid #fff;
   background-color: #03444400;
-  padding: 0;
+  /* padding: 0; */
   border-radius: 2%;
   color: #fff;
   width: 100%;
   text-align: center;
+  background-image: url("resouces/search.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 30px;
 }
 input:focus {
   background-color: #03444400;
@@ -164,9 +168,11 @@ input:focus {
 }
 
 ::placeholder {
-  font-style: italic;
-  font-size: 16px;
+  /* font-style: italic; */
+  font-size: 18px;
   text-align: center;
+  font-family: 'Caveat', cursive;
+  color: #fff;
 }
 
 button {

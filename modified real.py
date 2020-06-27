@@ -59,7 +59,7 @@ def Get_data(gce):
     Data = re.sub(r"Passed In \d Subjects: \d+", "", Data)
     Data = re.sub(r"Passed In \d Subjects:\d+", "", Data)
     Data = Data.replace("(", " (")
-    # print(Data)
+    print(Data)
         # return Data;
 
 
@@ -68,69 +68,59 @@ def Get_data(gce):
 
     #Prompting name
 
-    # NameResult = input("What is the name: ")
-    # StudentName = NameResult
+    NameResult = input("What is the name: ")
+    StudentName = NameResult
 
-    # #Concatenating name to regex for results
-    # NameResult = "("+NameResult+").*?\("
+    #Concatenating name to regex for results
+    NameResult = "("+NameResult+").*?\(";
 
-    # # NameResult = NameResult + " +\s?([A-Z]+-([A-E],?))+"
+    # NameResult = NameResult + " +\s?([A-Z]+-([A-E],?))+"
 
-    # # Printing out the combined regex before searching
-    # # print('Sneak Preview of the RegExp')
-    # # print((NameResult))
+    # Printing out the combined regex before searching
+    # print('Sneak Preview of the RegExp')
+    # print((NameResult))
 
-    # #Searching the combined regex in the extracted data
-    # # print('Processing')
-    # NameResult = re.search(r""+NameResult, Data)
+    #Searching the combined regex in the extracted data
+    # print('Processing')
+    NameResult = re.search(r""+NameResult, Data)
 
-    # # print('**************************************************')
-    # Finale_NameResult = NameResult.group(0)[:-1]
-    # print(Finale_NameResult)
+    # print('**************************************************')
+    Finale_NameResult = NameResult.group(0)[:-1]
+    print(Finale_NameResult)
 
-    # # print(type(NameResult.group(0)[:-1]))
+    # print(type(NameResult.group(0)[:-1]))
 
-    # # print('**************************************************')
+    # print('**************************************************')
 
-    # #Initialising dictionary to push data to
-    # Finale_content = {}
+    #Initialising dictionary to push data to
+    Finale_content = {}
 
-    # #Extract results from Finale_NameResult
-    # FinaleResult = re.search(r"([A-Z]+-[A-E],?)+", Finale_NameResult)
-    # FinaleResult = FinaleResult.group(0)
-    # # print(FinaleResult)
+    #Extract results from Finale_NameResult
+    FinaleResult = re.search(r"([A-Z]+-[A-E],?)+", Finale_NameResult)
+    FinaleResult = FinaleResult.group(0)
+    # print(FinaleResult)
 
-    # #pushing name and result to the dictionary
-    # Finale_content[StudentName] = FinaleResult
+    #pushing name and result to the dictionary
+    Finale_content[StudentName] = FinaleResult
 
-    # subjects = FinaleResult.split(",")
+    subjects = FinaleResult.split(",")
 
 
 
     
-    # displaypassed = "Congratulations {name}. You Passed in {num} subjects which are {Resulthere}".format(name = StudentName, num = len(subjects), Resulthere = FinaleResult)
-    # # len(subjects)
+    displaypassed = "Congratulations {name}. You Passed in {num} subjects which are {Resulthere}".format(name = StudentName, num = len(subjects), Resulthere = FinaleResult)
+    # len(subjects)
 
 
-    # print('\n\n\n**************************Processing*********************\n')
-    # print(Finale_content)
-    # print(displaypassed)
-    # print('\n*********************************************************')
-    # print("\n\n\n")
-
-
-    result_and_name = re.findall("(([A-Z]+ )+.*?\()", Data)
-    print((result_and_name))
-    finale2  = " ".join(result_and_name)
-    # result_and_name = re.findall("(([A-Z]+ )+.*?\()", result_and_name)
-
-    # print((result_and_name))
-# fin = re.findall("(([A-Z]+ )+.*?\()", strin)
-    # print(result_and_name)
+    print('\n\n\n**************************Processing*********************\n')
+    print(Finale_content)
+    print(displaypassed)
+    print('\n*********************************************************')
+    print("\n\n\n")
 
 
 
 
-Get_data("./pdfs/2019-algen.pdf")
+
+Get_data("2019-algen.pdf")
 #=======================================================================================================================
-# /home/yunwen/Documents/Seven Advanced/Projects/GCE-platform-project/pdfs/2019-algen.pdf

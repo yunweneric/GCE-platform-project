@@ -9,10 +9,3 @@
 
 #
 #RecursionError: maximum recursion depth exceeded while calling a Python object
-
-
-
-
-import re
-string = "SC-E41.249of28Page"
-regex = re.

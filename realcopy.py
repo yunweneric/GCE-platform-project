@@ -119,9 +119,29 @@ def Get_data(gce):
     # print("\n\n\n")
 
 
-    result_and_name = re.findall("(([A-Z]+ )+.*?\()", Data)
-    print((result_and_name))
-    finale2  = " ".join(result_and_name)
+    result_and_name = re.findall(r"(([A-Z]-?'?)+ .*?\()", Data)
+    # print(len(result_and_name))
+    # print((result_and_name[1]))
+    # print(type(result_and_name))
+    subresults = []
+    for i in result_and_name:
+        # i[2:-9]
+        i = str(i)
+        i = i[2:-9]
+        # print(type(i))
+        subresults.append(i)
+        # print(i)
+    print(subresults)
+
+
+
+
+
+
+    # done = list(filter(lambda x:len(x) > 3, result_and_name))
+    # print(done)
+
+    # finale2  = " ".join(result_and_name)
     # result_and_name = re.findall("(([A-Z]+ )+.*?\()", result_and_name)
 
     # print((result_and_name))

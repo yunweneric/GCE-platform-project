@@ -17,24 +17,26 @@ body {
   overflow-x: hidden;
   width: 100vw;
   background: rgba(3, 68, 68, 1);
-  background: -moz-linear-gradient(
+  /* background: -moz-linear-gradient(
     -45deg,
     rgba(3, 68, 68, 1) 0%,
     rgba(3, 68, 68, 1) 27%,
     rgba(98, 125, 77, 1) 100%
-  );
+  ); */
   background: -webkit-linear-gradient(
     -45deg,
     rgba(3, 68, 68, 1) 0%,
     rgba(3, 68, 68, 1) 27%,
-    rgba(98, 125, 77, 1) 100%
-  );
-  background: linear-gradient(
+    rgb(7, 119, 72) 100%
+  );  
+  font-family: 'Caveat', cursive;
+
+  /* background: linear-gradient(
     135deg,
     rgba(3, 68, 68, 1) 0%,
     rgba(3, 68, 68, 1) 27%,
     rgba(98, 125, 77, 1) 100
-  );
+  ); */
 }
 
 /* ============================================================================= */
@@ -152,6 +154,7 @@ input {
   border: none;
   border-bottom: 1px solid #fff;
   background-color: #03444400;
+  font-family: "Caveat", cursive;
   /* padding: 0; */
   border-radius: 2%;
   color: #fff;
@@ -169,9 +172,9 @@ input:focus {
 
 ::placeholder {
   /* font-style: italic; */
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
-  font-family: 'Caveat', cursive;
+  font-family: "Caveat", cursive;
   color: #fff;
 }
 

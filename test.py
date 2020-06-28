@@ -10,24 +10,27 @@
 
 
 
-import re
-list = "21 noella2 3 4 5jesus 655555 , 7 great"
-list2 = ["1","22","3","4","5","6","7"]
+# import re
+# list = "21 noella2 3 4 5jesus 655555 , 7 great"
+# list2 = ["1","22","3","4","5","6","7"]
 
 
-res = re.findall("\d+\w+", list)
+# res = re.findall(r"\d+\w+", list)
 
-print(res)
-print(type(res))
-
-
-strin = "MAKOKI COLETTE ECO-C,LIT-E,HIS-D (1)FOINTAMA MELISA BI BIO-B,CHE-E,PHY-E (2)AKAM PRINCELY MBAH ECO-E,GEO-E,HIS-C (3)ALIYOU AYUBA BIO-E,CHE-D,PHY-E (4)NDEM RANDY ANCHOUR ECO-E,GEO-E,HIS-E (5) TANYI VILEROY EJANG ECO-A,GEO-C (1)NYUKA YANGO BARBARA HIS-C,PHI-D (2)MBACHAM COLLINS MBACHAM ECO-D,HIS-E (3)WILBA HERMANN ANGELOS ECO-D,GEO-E (4)DJINDA KAMGANG WILLIAM TYCHIQUE BIO-E,CHE-E (5)KALA KENMOE DIDINE ZITA ECO-E,HIS-E (6)"
-
-fin = re.findall("([A-Z]-?'?)+ .*?\(", strin)
-print(fin)
+# print(res)
+# print(type(res))
 
 
-print("#".join(list2))
+# strin = "MAKOKI COLETTE ECO-C,LIT-E,HIS-D (1)FOINTAMA MELISA BI BIO-B,CHE-E,PHY-E (2)AKAM PRINCELY MBAH ECO-E,GEO-E,HIS-C (3)ALIYOU AYUBA BIO-E,CHE-D,PHY-E (4)NDEM RANDY ANCHOUR ECO-E,GEO-E,HIS-E (5) TANYI VILEROY EJANG ECO-A,GEO-C (1)NYUKA YANGO BARBARA HIS-C,PHI-D (2)MBACHAM COLLINS MBACHAM ECO-D,HIS-E (3)WILBA HERMANN ANGELOS ECO-D,GEO-E (4)DJINDA KAMGANG WILLIAM TYCHIQUE BIO-E,CHE-E (5)KALA KENMOE DIDINE ZITA ECO-E,HIS-E (6)"
+
+# # fin = re.findall(r"{([A-Z]-?'?)+\s?([A-Z]-?'?)+\s?(([A-Z]-?'?)+)?\s?(([A-Z]-?'?)+)?\s?([A-Z]+-[A-E],?)+}", strin)
+# fin = re.findall(r"(([A-Z]-?'?)+ .*?\()", strin)
+
+
+# print(fin)
+
+
+# print("#".join(list2))
 
 
 
@@ -62,3 +65,14 @@ print("#".join(list2))
 # Sanction: 0 
 
 
+list1 = ["('TEBOH CALISIUS TEKOH CHE-E,PHY-D (', 'H')", "('EWANOGE CLARA SENGE ECO-E,HIS-D (', 'E'),"]
+# list1 = list(filter(lambda x:x[1:-9] , list1))
+# print(list1)
+# list = "('TEWANG GERALD TEMBENG GEO-E,HIS-E (', 'G')"
+
+print(list[2:-9])
+
+for i in list1:
+    i = i[2:-9]
+    print(i)
+    # else:

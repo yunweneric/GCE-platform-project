@@ -1,16 +1,4 @@
-#=======================================================================================================================                    
-                    # Corrected Errors
-
-        #1.0  Your indenting with the for loop in Get_Data function was a reason your data contained only the last page
-        #1.1. You also did not concatenate the Raw_data of the first page to that of the other page too, soo you just overwrite them
-        #1.2. I Didnt understant your regular expression,so i wrote mine to match from the name, down until the the first (
-        #1.3. I used group(0) to extract the matching text and i spliced the ( with a [:-1] 
-
-#=======================================================================================================================
-
-
-
-
+#=======================================================================================================================                  
 # 1: Importing dependecies
 import PyPDF4
 
@@ -59,20 +47,20 @@ def Get_data(gce):
     Data = re.sub(r"Passed In \d Subjects: \d+", "", Data)
     Data = re.sub(r"Passed In \d Subjects:\d+", "", Data)
     Data = Data.replace("(", " (")
-    # print(Data)
+    print(Data)
         # return Data;
 
 
         # f.write(Data+"\n")
     # f.close()
 
-    #Prompting name
+    # Prompting name
 
     # NameResult = input("What is the name: ")
     # StudentName = NameResult
 
     # #Concatenating name to regex for results
-    # NameResult = "("+NameResult+").*?\("
+    # NameResult = "("+NameResult+").*?\("                              
 
     # # NameResult = NameResult + " +\s?([A-Z]+-([A-E],?))+"
 
@@ -121,7 +109,7 @@ def Get_data(gce):
 
     result_and_name = re.findall(r"(([A-Z]-?'?)+ .*?\()", Data)
     # print(len(result_and_name))
-    # print((result_and_name[1]))
+    # print((result_and_name))
     # print(type(result_and_name))
     subresults = []
     for i in result_and_name:
@@ -130,8 +118,17 @@ def Get_data(gce):
         i = i[2:-9]
         # print(type(i))
         subresults.append(i)
-        # print(i)
-    print(subresults)
+        print(i)
+    import json
+    subresults = json.dumps(subresults)
+    # print(subresults)
+
+    
+    # for i in subresults:
+    #    Name =  re.search(r"([A-Z]{3}-[A-Z]{1},?)+", i)
+    #    print(Name)
+    #    print(Name.group(0))
+
 
 
 
@@ -145,12 +142,8 @@ def Get_data(gce):
     # result_and_name = re.findall("(([A-Z]+ )+.*?\()", result_and_name)
 
     # print((result_and_name))
-# fin = re.findall("(([A-Z]+ )+.*?\()", strin)
+    # fin = re.findall("(([A-Z]+ )+.*?\()", strin)
     # print(result_and_name)
-
-
-
-
-Get_data("./pdfs/2019-algen.pdf")
+Get_data("./pdfs/2019-olgen.pdf")
 #=======================================================================================================================
 # /home/yunwen/Documents/Seven Advanced/Projects/GCE-platform-project/pdfs/2019-algen.pdf

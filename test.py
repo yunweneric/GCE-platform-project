@@ -32,15 +32,6 @@
 
 # print("#".join(list2))
 
-
-
-
-
-
-
-
-
-
 #([A-Z]-?'?)+ .*?\(
 
 
@@ -65,14 +56,34 @@
 # Sanction: 0 
 
 
-list1 = ["('TEBOH CALISIUS TEKOH CHE-E,PHY-D (', 'H')", "('EWANOGE CLARA SENGE ECO-E,HIS-D (', 'E'),"]
-# list1 = list(filter(lambda x:x[1:-9] , list1))
-# print(list1)
-# list = "('TEWANG GERALD TEMBENG GEO-E,HIS-E (', 'G')"
+# list1 = ["('TEBOH CALISIUS TEKOH CHE-E,PHY-D (', 'H')", "('EWANOGE CLARA SENGE ECO-E,HIS-D (', 'E'),"]
+# # list1 = list(filter(lambda x:x[1:-9] , list1))
+# # print(list1)
+# # list = "('TEWANG GERALD TEMBENG GEO-E,HIS-E (', 'G')"
 
-print(list[2:-9])
+# print(list[2:-9])
 
-for i in list1:
-    i = i[2:-9]
-    print(i)
+# for i in list1:
+#     i = i[2:-9]
+#     print(i)
     # else:
+# ===============================================================================================================================
+
+
+
+# list = ['NJONG MARTIN GIANG ECO-C,HIS-C,PHI-B', 'ETONGWE GRACE ESAKE ENG-B,LIT-C,HIS-C', 'NGONG YVETTE BINENG BIO-B,CHE-E,FSN-B', 'JU VAMAL MBONG ECO-A,GEO-C,PMS-E','GRACE-KELLY ENANGA FENDE ECO-E,GEO-E,HIS-D', "NDUMBI SHALOM MANKA'A BIO-D,PMS-C"]
+
+# import json
+# list = json.dumps(list)
+# print(list)
+# # for i in list:
+#     # print(i)
+
+# ================================================================================================================================
+
+list = ["NSOH AKAME SHARON LIT-E,HIS-D,PHI-E", "NJINUWOH ANTHIONE TASSAH LIT-E,HIS-C", "NFORMI SHEKINAH-GLORY YULA ENG-C,LIT-E", "AKWO NGWA BEATRICE ECO-E,GEO-E", "MBUI ZEPHANIAH ASELIKWE ECO-E,GEO-E", "EKUKA CYNTHIA KIRA ECO-D,GEO-D,HIS-E", "CHIANKEM LAURENTINE CHIAFIE TENGIM BIO-B,CHE-D,PMM-E,PHY-D,ICT-C", "MUATEH YEYE GLORY ENG-D,LIT-E,HIS-B,PHI-A", "MISSI CYNTHIA PENGHA ECO-C,LIT-E,HIS-B,PHI-D", "GLORY MBUDZI ECO-A,ENG-E,GEO-E,HIS-C", "WIRBA RASMIRATU DZELAMONYUY ECO-B,ENG-D,GEO-E,HIS-C","NDUMBI SHALOM MANKA'A BIO-D,PMS-C"]
+
+
+
+for i in list:
+    print(i)

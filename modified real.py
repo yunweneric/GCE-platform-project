@@ -26,7 +26,6 @@ def Get_data(gce):
 
     # 4: saving content to a string called content
     content = Loaded_pdf.numPages
-
     # 4.1: looping through all pages to access modify content
     for i in range(content):
         # 4.2: Reading(looping through all pages)

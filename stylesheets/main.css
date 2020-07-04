@@ -211,3 +211,8 @@ footer {
 footer p {
   text-align: center;
 }
+.foot{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

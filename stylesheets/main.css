@@ -1,9 +1,10 @@
 :root{
   --clr-primary: #090c2e;
+  /* --clr-primary: #2a9b92; */
   --clr-dark:#000;
   --clr-light:#fff;
 }
-*,
+*,2a9b92
 *::before,
 *::after {
   margin: 0;
@@ -17,6 +18,66 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+/* ============================================================================== */
+
+/* Preloader */
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  height:100%;
+}
+.loader-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #242f3f;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border: 4px solid #Fff;
+  /* animation: loader 2s infinite ease; */
+  animation: loader 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+
+}
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: #fff;
+  /* animation: loader-inner 2s infinite ease-in; */
+  animation: loader-inner 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+
+}
+
+@keyframes loader-inner {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
+}
+
+/* ============================================================================= */
 
 body {
   overflow-x: hidden;
@@ -201,6 +262,7 @@ input[type="submit"] {
   margin: 20px auto auto auto;
   text-transform: capitalize;
   transition: background-color color 1s ease;
+  cursor: pointer;
 }
 input[type="submit"]:hover {
   background-color: #f86d70;

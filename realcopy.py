@@ -191,6 +191,7 @@ def Get_Oldata(gce):
     # Data = Data.replace("(", "")
 
 
+    # USE REGEX TO MODIFY THE STUDENT'S RESULTS. EX. HIS-BNAME ===> HIS-B NAME............
 
     Data = Data.replace("HIS-A", "HIS-A ")
     Data = Data.replace("HIS-B", "HIS-B ")
@@ -263,6 +264,15 @@ def Get_Oldata(gce):
     Data = Data.replace("SBEF-A","SBEF-A ")
     Data = Data.replace("SBEF-B","SBEF-B ")
     Data = Data.replace("SBEF-C","SBEF-C ")
+
+
+    Data = re.sub(r"Sanctioned : \d+", "\n", Data)
+    Data = Data.replace("Centre No:  ", '\n\n\n\n"Centre No": ')
+    Data = Data.replace("Regist:", '\nRegist:')
+    Data = Data.replace("Sat for 2 or more Subjects:", '\nSat for 2 or more Subjects: ')
+    Data = Data.replace("Results of Successful Candidates In Order Of Merit", "")
+    Data = Data.replace("% Passed : ", '\n%Passed: ')
+    Data = Data.replace(" Passed : ", '\nPassed: ')
     print(Data)
 
 
@@ -277,13 +287,7 @@ def Get_Oldata(gce):
 
 
 
-    Data = re.sub(r"Sanctioned : \d+", "\n", Data)
-    Data = Data.replace("Centre No:  ", '\n\n\n\n"Centre No": ')
-    Data = Data.replace("Regist:", '\nRegist:')
-    Data = Data.replace("Sat for 2 or more Subjects:", '\nSat for 2 or more Subjects: ')
-    Data = Data.replace("Results of Successful Candidates In Order Of Merit", "")
-    Data = Data.replace("% Passed : ", '\n%Passed: ')
-    Data = Data.replace(" Passed : ", '\nPassed: ')
+    
     # Data = Data.replace("Sanctioned : ", '\nSanctioned: \n')
 
     # Replacing the Passed in x subjects section
@@ -298,13 +302,12 @@ def Get_Oldata(gce):
     
     # Data = Data.replace("( In 9 Subjects: 16", "")
 
-    Data = Data.replace("(", " (")
+    # Data = Data.replace("(", " (")
     
-    # USE REGEX TO MODIFY THE STUDENT'S RESULTS. EX. HIS-BNAME ===> HIS-B NAME............
   
 
 
-    print(Data)
+    # print(Data)
     # f.write(Data)
 
      
@@ -312,78 +315,79 @@ def Get_Oldata(gce):
                     #APPROACH 1: USE NAME, APPEND REGEX AND EXTRACT DATA
 
     # Prompting name
+    while True:
+        NameResult = input("What is the name: ")
+        StudentName = NameResult
 
-    NameResult = input("What is the name: ")
-    StudentName = NameResult
+        #Concatenating name to regex for results
+        NameResult = r"("+NameResult+").*?\("                              
+        # NameResult = NameResult + " +\s?([A-Z]+-([A-E],?))+"
 
-    #Concatenating name to regex for results
-    NameResult = "("+NameResult+").*?\("                              
+        # Printing out the combined regex before searching
+        print('Sneak Preview of the RegExp')
+        # print((NameResult))
 
-    # NameResult = NameResult + " +\s?([A-Z]+-([A-E],?))+"
+        #Searching the combined regex in the extracted data
+        # print('Processing')
+        NameResult = re.search(r""+NameResult, Data)
 
-    # Printing out the combined regex before searching
-    # print('Sneak Preview of the RegExp')
-    # print((NameResult))
+        # print('**************************************************')
+        Finale_NameResult = NameResult.group(0)[:-1]
+        NameResult = NameResult.group(0)[:-1]
+        print(Finale_NameResult)
+        # print(NameResult)
 
-    #Searching the combined regex in the extracted data
-    # print('Processing')
-    NameResult = re.search(r""+NameResult, Data)
+        # print(type(NameResult.group(0)[:-1]))
+        # print('**************************************************')
 
-    # print('**************************************************')
-    Finale_NameResult = NameResult.group(0)[:-1]
-    print(Finale_NameResult)
+        #Initialising dictionary to push data to
+        Finale_content = {}
 
-    # print(type(NameResult.group(0)[:-1]))
-    # print('**************************************************')
+        #Extract results from Finale_NameResult
+        FinaleResult = re.search(r"([A-Z]+-[A-E] ,?)+", Finale_NameResult)
+        FinaleResult = FinaleResult.group(0)
+        # print(FinaleResult)
 
-    #Initialising dictionary to push data to
-    Finale_content = {}
+        #pushing name and result to the dictionary
+        Finale_content[StudentName] = FinaleResult
 
-    #Extract results from Finale_NameResult
-    FinaleResult = re.search(r"([A-Z]+-[A-E],?)+", Finale_NameResult)
-    FinaleResult = FinaleResult.group(0)
-    # print(FinaleResult)
-
-    #pushing name and result to the dictionary
-    Finale_content[StudentName] = FinaleResult
-
-    subjects = FinaleResult.split(",")
-
-
-
-    
-    displaypassed = "Congratulations {name}. You Passed in {num} subjects which are {Resulthere}".format(name = StudentName, num = len(subjects), Resulthere = FinaleResult)
-    # len(subjects)
+        subjects = FinaleResult.split(",")
 
 
-    print('\n\n\n**************************Processing*********************\n')
-    print(Finale_content)
-    print(displaypassed)
-    print('\n*********************************************************')
-    print("\n\n\n")
 
-# =============================================================================================================
-                       #APPROACH #2
-             # FIND ANY NAME AND RESULTS LINKED TOGETHER 
+        
+        displaypassed = "Congratulations {name}. You Passed in {num} subjects which are {Resulthere}".format(name = StudentName, num = len(subjects), Resulthere = FinaleResult)
+        # len(subjects)
 
-    result_and_name = re.findall(r"(([A-Z]-?'?)+ .*?\()", Data)
-    # print(len(result_and_name))
-    # print((result_and_name))
-    # print(type(result_and_name))
-    subresults = []
-    for i in result_and_name:
-        # i[2:-9]
-        i = str(i)
-        i = i[2:-9]
-        # print(type(i))
-        subresults.append(i)
-        # print(i)
-    import json
-    subresults = json.dumps(subresults)
-    # print(subresults)
 
-    # f.write(subresults)
-    # f.close()
+        print('\n\n\n**************************Processing*********************\n')
+        print(Finale_content)
+        print(displaypassed)
+        print('\n*********************************************************')
+        print("\n\n\n")
+
+    # =============================================================================================================
+                        #APPROACH #2
+                # FIND ANY NAME AND RESULTS LINKED TOGETHER 
+
+        result_and_name = re.findall(r"(([A-Z]-?'?)+ .*?\()", Data)
+        # print(len(result_and_name))
+        # print((result_and_name))
+        # print(type(result_and_name))
+        subresults = []
+        for i in result_and_name:
+            # i[2:-9]
+            i = str(i)
+            i = i[2:-9]
+            # print(type(i))
+            subresults.append(i)
+            # print(i)
+        import json
+        subresults = json.dumps(subresults)
+        # print(subresults)
+
+        # f.write(subresults)
+        # f.close()
 
     # =======================================================================================================
                             #EXTRACTING RESULTS AND NAME FROM EXTRACTED LINKED DATA

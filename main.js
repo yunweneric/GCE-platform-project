@@ -4,9 +4,9 @@ const pdf = require('pdf-parse');
 
 // Loading pdf
 // let dataBuffer = fs.readFileSync('pdfs/2019-algen.pdf');
-// let dataBuffer = fs.readFileSync('pdfs/2019-olgen.pdf');
+let dataBuffer = fs.readFileSync('pdfs/2019-olgen.pdf');
 // let dataBuffer = fs.readFileSync('pdfs/2019-altech.pdf');
-let dataBuffer = fs.readFileSync('pdfs/2019-oltech.pdf');
+// let dataBuffer = fs.readFileSync('pdfs/2019-oltech.pdf');
 
 pdf(dataBuffer).then(function (data) {
 
@@ -47,6 +47,10 @@ pdf(dataBuffer).then(function (data) {
     Data = Data.replace(/Results of Successful Candidates In Order Of Merit/g, "");
     Data = Data.replace(/% Passed : /g, '\n%Passed: ');
     Data = Data.replace(/ Passed : /g, '\nPassed: ');
+    Data = Data.replace(/\(\d+\)/g, "");
+    Data = Data.replace(/\(/g, "");
+
+
 
 
     // Technical section modifications
@@ -55,6 +59,10 @@ pdf(dataBuffer).then(function (data) {
     Data = Data.replace(/Passed In Single Subjects: \d+/g, "");
     Data = Data.replace(/Passed In Single Subjects/g, "");
     Data = Data.replace(/Passed In Building Construction Specialty: \d+/g, "");
+    Data = Data.replace(/Passed In Business Studies Specialty: \d+/g, "");
+    Data = Data.replace(/Passed In Electrical Technology Specialty: \d+/g, "");
+    Data = Data.replace(/Passed In Motor Mechanics Specialty: \d+/g, "");
+    Data = Data.replace(/In Building Construction Specialty:  \d+/g, "");
 
     console.log(Data);
 

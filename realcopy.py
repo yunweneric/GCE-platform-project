@@ -211,132 +211,137 @@ def Get_Oldata(gce):
     
     # USE REGEX TO MODIFY THE STUDENT'S RESULTS. EX. HIS-BNAME ===> HIS-B NAME............
    
-    Data = Data.replace("HIS-A", "HIS-A ")
-    Data = Data.replace("HIS-B", "HIS-B ")
-    Data = Data.replace("HIS-C", "HIS-C ")
+    # Data = Data.replace("HIS-A", "HIS-A")
+    # Data = Data.replace("HIS-B", "HIS-B")
+    # Data = Data.replace("HIS-C", "HIS-C")
 
-    Data = Data.replace("GEO-A", "GEO-A ")
-    Data = Data.replace("GEO-B", "GEO-B ")
-    Data = Data.replace("GEO-C", "GEO-C ")
+    # Data = Data.replace("GEO-A", "GEO-A")
+    # Data = Data.replace("GEO-B", "GEO-B")
+    # Data = Data.replace("GEO-C", "GEO-C")
 
     
-    Data = Data.replace("MAT-A", "MAT-A ")
-    Data = Data.replace("MAT-B", "MAT-B ")
-    Data = Data.replace("MAT-C", "MAT-C ")
+    # Data = Data.replace("MAT-A", "MAT-A")
+    # Data = Data.replace("MAT-B", "MAT-B")
+    # Data = Data.replace("MAT-C", "MAT-C")
 
-    Data = Data.replace("CHE-A", "CHE-A ")
-    Data = Data.replace("CHE-B", "CHE-B ")
-    Data = Data.replace("CHE-C", "CHE-C ")
+    # Data = Data.replace("CHE-A", "CHE-A")
+    # Data = Data.replace("CHE-B", "CHE-A")
+    # Data = Data.replace("CHE-C", "CHE-A")
 
-    Data = Data.replace("BIO-A", "BIO-A ")
-    Data = Data.replace("BIO-B", "BIO-B ")
-    Data = Data.replace("BIO-C", "BIO-C ")
-
-
-    Data = Data.replace("ECO-A", "ECO-A ")
-    Data = Data.replace("ECO-B", "ECO-B ")
-    Data = Data.replace("ECO-C", "ECO-C ")
-
-    Data = Data.replace("PHY-A", "PHY-A ")
-    Data = Data.replace("PHY-B", "PHY-B ")
-    Data = Data.replace("PHY-C", "PHY-C ")
-
-    Data = Data.replace("REL-A", "REL-A ")
-    Data = Data.replace("REL-B", "REL-B ")
-    Data = Data.replace("REL-C", "REL-C ")
-
-    Data = Data.replace("LOG-A", "LOG-A ")
-    Data = Data.replace("LOG-B", "LOG-B ")
-    Data = Data.replace("LOG-C", "LOG-C ")
+    # Data = Data.replace("BIO-A", "BIO-A")
+    # Data = Data.replace("BIO-B", "BIO-B")
+    # Data = Data.replace("BIO-C", "BIO-C")
 
 
-    Data = Data.replace("COM-A", "COM-A ")
-    Data = Data.replace("COM-B", "COM-B ")
-    Data = Data.replace("COM-C", "COM-C ")
+    # Data = Data.replace("ECO-A", "ECO-A")
+    # Data = Data.replace("ECO-B", "ECO-B")
+    # Data = Data.replace("ECO-C", "ECO-C")
 
-    Data = Data.replace("LIT-A", "LIT-A ")
-    Data = Data.replace("LIT-B", "LIT-B ")
-    Data = Data.replace("LIT-C", "LIT-C ")
+    # Data = Data.replace("PHY-A", "PHY-A")
+    # Data = Data.replace("PHY-B", "PHY-B")
+    # Data = Data.replace("PHY-C", "PHY-C")
+
+    # Data = Data.replace("REL-A", "REL-A")
+    # Data = Data.replace("REL-B", "REL-B")
+    # Data = Data.replace("REL-C", "REL-C")
+
+    # Data = Data.replace("LOG-A", "LOG-A")
+    # Data = Data.replace("LOG-B", "LOG-B")
+    # Data = Data.replace("LOG-C", "LOG-C")
 
 
-    Data = Data.replace("HBI-A", "HBI-A ")
-    Data = Data.replace("HBI-B", "HBI-B ")
-    Data = Data.replace("HBI-C", "HBI-C ")
+    # Data = Data.replace("COM-A", "COM-A")
+    # Data = Data.replace("COM-B", "COM-B")
+    # Data = Data.replace("COM-C", "COM-C")
+
+    # Data = Data.replace("LIT-A", "LIT-A")
+    # Data = Data.replace("LIT-B", "LIT-B")
+    # Data = Data.replace("LIT-C", "LIT-C")
 
 
-    Data = Data.replace("CZE-A", "CZE-A ")
-    Data = Data.replace("CZE-B", "CZE-B ")
-    Data = Data.replace("CZE-C", "CZE-C ")
+    # Data = Data.replace("HBI-A", "HBI-A")
+    # Data = Data.replace("HBI-B", "HBI-B")
+    # Data = Data.replace("HBI-C", "HBI-C")
 
-    Data = Data.replace("ENG-A", "ENG-A ")
-    Data = Data.replace("ENG-B", "ENG-B ")
-    Data = Data.replace("ENG-C", "ENG-C ")
 
-    Data = Data.replace("FRE-A", "FRE-A ")
-    Data = Data.replace("FRE-B", "FRE-B ")
-    Data = Data.replace("FRE-C", "FRE-C ")
+    # Data = Data.replace("CZE-A", "CZE-A")
+    # Data = Data.replace("CZE-B", "CZE-B")
+    # Data = Data.replace("CZE-C", "CZE-C")
 
-    Data = Data.replace("AMA-A", "AMA-A ")
-    Data = Data.replace("AMA-B", "AMA-B ")
-    Data = Data.replace("AMA-C", "AMA-C ")
+    # Data = Data.replace("ENG-A", "ENG-A")
+    # Data = Data.replace("ENG-B", "ENG-B")
+    # Data = Data.replace("ENG-C", "ENG-C")
 
-    # print(Data)
+    # Data = Data.replace("FRE-A", "FRE-A")
+    # Data = Data.replace("FRE-B", "FRE-B")
+    # Data = Data.replace("FRE-C", "FRE-C")
+
+    # Data = Data.replace("AMA-A", "AMA-A")
+    # Data = Data.replace("AMA-B", "AMA-B")
+    # Data = Data.replace("AMA-C", "AMA-C")
+
+    # Data = Data.replace("SBEF-A","SBEF-A")
+    # Data = Data.replace("SBEF-B","SBEF-B")
+    # Data = Data.replace("SBEF-C","SBEF-C")
+
+
+    print(Data)
     # f.write(Data)
 
-    
+     
 # ======================================================================================================
                     #APPROACH 1: USE NAME, APPEND REGEX AND EXTRACT DATA
 
-    # # Prompting name
+    # Prompting name
 
-    # NameResult = input("What is the name: ")
-    # StudentName = NameResult
+    NameResult = input("What is the name: ")
+    StudentName = NameResult
 
-    # #Concatenating name to regex for results
-    # # NameResult = "("+NameResult+").*?\("                              
+    #Concatenating name to regex for results
+    NameResult = "("+NameResult+").*?\("                              
 
     # NameResult = NameResult + " +\s?([A-Z]+-([A-E],?))+"
 
-    # # Printing out the combined regex before searching
-    # # print('Sneak Preview of the RegExp')
-    # # print((NameResult))
+    # Printing out the combined regex before searching
+    # print('Sneak Preview of the RegExp')
+    # print((NameResult))
 
-    # #Searching the combined regex in the extracted data
-    # # print('Processing')
-    # NameResult = re.search(r""+NameResult, Data)
+    #Searching the combined regex in the extracted data
+    # print('Processing')
+    NameResult = re.search(r""+NameResult, Data)
 
-    # # print('**************************************************')
-    # Finale_NameResult = NameResult.group(0)[:-1]
-    # print(Finale_NameResult)
+    # print('**************************************************')
+    Finale_NameResult = NameResult.group(0)[:-1]
+    print(Finale_NameResult)
 
-    # # print(type(NameResult.group(0)[:-1]))
-    # # print('**************************************************')
+    # print(type(NameResult.group(0)[:-1]))
+    # print('**************************************************')
 
-    # #Initialising dictionary to push data to
-    # Finale_content = {}
+    #Initialising dictionary to push data to
+    Finale_content = {}
 
-    # #Extract results from Finale_NameResult
-    # FinaleResult = re.search(r"([A-Z]+-[A-E],?)+", Finale_NameResult)
-    # FinaleResult = FinaleResult.group(0)
-    # # print(FinaleResult)
+    #Extract results from Finale_NameResult
+    FinaleResult = re.search(r"([A-Z]+-[A-E],?)+", Finale_NameResult)
+    FinaleResult = FinaleResult.group(0)
+    # print(FinaleResult)
 
-    # #pushing name and result to the dictionary
-    # Finale_content[StudentName] = FinaleResult
+    #pushing name and result to the dictionary
+    Finale_content[StudentName] = FinaleResult
 
-    # subjects = FinaleResult.split(",")
+    subjects = FinaleResult.split(",")
 
 
 
     
-    # displaypassed = "Congratulations {name}. You Passed in {num} subjects which are {Resulthere}".format(name = StudentName, num = len(subjects), Resulthere = FinaleResult)
-    # # len(subjects)
+    displaypassed = "Congratulations {name}. You Passed in {num} subjects which are {Resulthere}".format(name = StudentName, num = len(subjects), Resulthere = FinaleResult)
+    # len(subjects)
 
 
-    # print('\n\n\n**************************Processing*********************\n')
-    # print(Finale_content)
-    # print(displaypassed)
-    # print('\n*********************************************************')
-    # print("\n\n\n")
+    print('\n\n\n**************************Processing*********************\n')
+    print(Finale_content)
+    print(displaypassed)
+    print('\n*********************************************************')
+    print("\n\n\n")
 
 # =============================================================================================================
                        #APPROACH #2
@@ -344,7 +349,7 @@ def Get_Oldata(gce):
 
     result_and_name = re.findall(r"(([A-Z]-?'?)+ .*?\()", Data)
     # print(len(result_and_name))
-    print((result_and_name))
+    # print((result_and_name))
     # print(type(result_and_name))
     subresults = []
     for i in result_and_name:

@@ -1,3 +1,8 @@
+:root{
+  --clr-primary: #090c2e;
+  --clr-dark:#000;
+  --clr-light:#fff;
+}
 *,
 *::before,
 *::after {
@@ -16,27 +21,11 @@
 body {
   overflow-x: hidden;
   width: 100vw;
-  background: rgba(3, 68, 68, 1);
-  /* background: -moz-linear-gradient(
-    -45deg,
-    rgba(3, 68, 68, 1) 0%,
-    rgba(3, 68, 68, 1) 27%,
-    rgba(98, 125, 77, 1) 100%
-  ); */
-  /* background: -webkit-linear-gradient(
-    -45deg,
-    rgba(3, 68, 68, 1) 0%,
-    rgba(3, 68, 68, 1) 27%,
-    rgb(7, 119, 72) 100%
-  );   */
-  font-family: 'Caveat', cursive;
-
-  /* background: linear-gradient(
-    135deg,
-    rgba(3, 68, 68, 1) 0%,
-    rgba(3, 68, 68, 1) 27%,
-    rgba(98, 125, 77, 1) 100
-  ); */
+  /* background: #034444; */
+  /* background: #090c2e; */
+  background: var(--clr-light);
+  background-color: var(--clr-primary);
+  font-family: "Caveat", cursive;
 }
 
 /* ============================================================================= */
@@ -59,7 +48,7 @@ a {
   /* font-family: "Muli", sans-serif; */
   font-weight: 400;
   line-height: 26px;
-  color: #fff;
+  color: var(--clr-light);
 }
 
 h1 {
@@ -84,6 +73,7 @@ p {
 ul {
   list-style-type: none;
 }
+
 a {
   text-decoration: none;
 }
@@ -99,6 +89,8 @@ li {
 header h1 {
   line-height: 40px;
   font-weight: 600;
+  letter-spacing: 2px;
+
   /* background-color: rgb(112, 31, 204); */
   /* width: 100%; */
 }
@@ -110,13 +102,15 @@ header p {
 
 header p {
   margin-top: 20px;
+  /* letter-spacing: 1px; */
 }
+
 .navbar {
   background-color: #0000004b;
 }
+
 .navbar-collapse li {
-  position: static;
-  /* top: 20px; */
+  /* position: static; */
   width: 100%;
   text-align: center;
   border-bottom: 2px solid #00000000;
@@ -125,6 +119,13 @@ header p {
 .navbar-collapse li:hover {
   border-bottom: 2px solid #ff5b3e;
 }
+.col-sm-6 img {
+  width: 100%;
+  /* height: 60%; */
+
+  /* background-color: #ff5b3e; */
+}
+
 /* .navbar-collapse li:hover {
   background-color: #d2691e;
   border-radius: 2px;
@@ -132,7 +133,7 @@ header p {
 } */
 
 .hero {
-  padding: 50px;
+  margin-top: 20px;
   /* background-color: coral; */
 }
 
@@ -140,10 +141,15 @@ header p {
 /* SEARCH SECTION */
 /* ============================================================================= */
 .firstcontainer {
-  padding: 106px;
+  /* padding: 106px; */
   /* background-color: coral; */
-  /* margin-left: 20px; */
-  /* width: 100%; */
+  margin: 40px auto;
+  width: 80%;
+}
+.search {
+  margin-top: 80px;
+  /* background-image:linear-gradient(rgba(0, 0, 0, 0.589), rgba(0, 0, 0, 0.719)), url("illustrations/undraw1.svg"); */
+  /* background-size: cover; */
 }
 .firstcontainer p {
   text-align: center;
@@ -152,60 +158,64 @@ header p {
 
 input {
   border: none;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid var(--clr-light);
   background-color: #03444400;
   font-family: "Caveat", cursive;
-  /* padding: 0; */
-  border-radius: 2%;
-  color: #fff;
+  color: var(--clr-light);
   width: 100%;
   text-align: center;
   background-image: url("resouces/search.png");
   background-repeat: no-repeat;
   background-position: left;
-  background-size: 30px;
+  background-size: 25px;
   font-size: 16px;
   text-transform: uppercase;
-  letter-spacing: 2px;
-
+  letter-spacing: 1px;
+  margin: 50px 0 0 0;
 }
+
 input:focus {
   background-color: #03444400;
   outline: none;
 }
 
-::placeholder {
-  /* font-style: italic; */
+input:placeholder {
   font-size: 16px;
   text-align: center;
   font-family: "Caveat", cursive;
-  color: #fff;
+  color: var(--clr-light);
+  opacity: 0.7;
   text-transform: capitalize;
 }
 
-button {
+input[type="submit"] {
   display: block;
+  font-family: "Alegreya", "lato", "Muli", "B612", serif;
   padding: 4px;
+  width: 15%;
   background-color: #03444400;
-  border: 1px solid #fff;
-  border-radius: 8%;
-  color: #fff;
-  /* width: 50%; */
-  margin: 8px auto auto auto;
-  transition: background color 1s ease;
+  border: 1px solid var(--clr-light);
+  border-radius: 5%;
+  color: var(--clr-light);
+  background: none;
+  margin: 20px auto auto auto;
+  text-transform: capitalize;
+  transition: background-color color 1s ease;
+}
+input[type="submit"]:hover {
+  background-color: #f86d70;
+  border: currentColor;
+  outline: none;
+  transition: background-color color 1s ease;
 }
 
-button:hover {
-  /* background-color: #030444; */
-  outline: none;
-  transition: background color 1s ease;
-}
 /* ============================================================================= */
 /* FOOTER SECTION */
 /* ============================================================================= */
 footer {
-  background-color: #000000df;
+  background: rgba(0, 0, 0, 0.794);
   margin-bottom: 0;
+  /* position: absolute; */
   padding: 10px;
   position: fixed;
   bottom: 0;

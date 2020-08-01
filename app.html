@@ -1,0 +1,11 @@
+
+<script>
+    var fs = require('fs');
+    fs.readFile('dictionary.json', function (err, data) {
+      if (err) return console.error(err);
+      console.log(data.toString());
+    });
+
+</script>
+
+<h1>Cool</h1>

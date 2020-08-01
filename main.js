@@ -9,21 +9,6 @@ let dataBuffer = fs.readFileSync('pdfs/2019-olgen.pdf');
 // let dataBuffer = fs.readFileSync('pdfs/2019-oltech.pdf');
 
 pdf(dataBuffer).then(function (data) {
-
-    // number of pages
-    // console.log(data.numpages);
-    // number of rendered pages
-    // console.log(data.numrender);
-    // PDF info
-    // console.log(data.info);
-    // PDF metadata
-    // console.log(data.metadata); 
-    // PDF.js version
-    // check https://mozilla.github.io/pdf.js/getting_started/
-    // console.log(data.version);
-    // PDF text
-    // console.log(data.text);
-
     // Storing extracted content
     var content = data.text;
 
@@ -64,6 +49,84 @@ pdf(dataBuffer).then(function (data) {
     Data = Data.replace(/Passed In Motor Mechanics Specialty: \d+/g, "");
     Data = Data.replace(/In Building Construction Specialty:  \d+/g, "");
 
+
+
+
+    Data = Data.replace(/HIS-A/g, "HIS-A ");
+    Data = Data.replace(/HIS-B/g, "HIS-B ");
+    Data = Data.replace(/HIS-C/g, "HIS-C ");
+
+    Data = Data.replace(/GEO-A/g, "GEO-A ");
+    Data = Data.replace(/GEO-B/g, "GEO-B ");
+    Data = Data.replace(/GEO-C/g, "GEO-C ");
+
+    Data = Data.replace(/MAT-A/g, "MAT-A ");
+    Data = Data.replace(/MAT-B/g, "MAT-B ");
+    Data = Data.replace(/MAT-C/g, "MAT-C ");
+
+    Data = Data.replace(/CHE-A/g, "CHE-A ");
+    Data = Data.replace(/CHE-B/g, "CHE-B ");
+    Data = Data.replace(/CHE-C/g, "CHE-C ");
+
+    Data = Data.replace(/BIO-A/g, "BIO-A ");
+    Data = Data.replace(/BIO-B/g, "BIO-B ");
+    Data = Data.replace(/BIO-C/g, "BIO-C ");
+
+
+    Data = Data.replace(/ECO-A/g, "ECO-A ");
+    Data = Data.replace(/ECO-B/g, "ECO-B ");
+    Data = Data.replace(/ECO-C/g, "ECO-C ");
+
+    Data = Data.replace(/PHY-A/g, "PHY-A ");
+    Data = Data.replace(/PHY-B/g, "PHY-B ");
+    Data = Data.replace(/PHY-C/g, "PHY-C ");
+
+    Data = Data.replace(/REL-A/g, "REL-A ");
+    Data = Data.replace(/REL-B/g, "REL-B ");
+    Data = Data.replace(/REL-C/g, "REL-C ");
+
+    Data = Data.replace(/LOG-A/g, "LOG-A ");
+    Data = Data.replace(/LOG-B/g, "LOG-B ");
+    Data = Data.replace(/LOG-C/g, "LOG-C ");
+
+    Data = Data.replace(/COM-A/g, "COM-A ");
+    Data = Data.replace(/COM-B/g, "COM-B ");
+    Data = Data.replace(/COM-C/g, "COM-C ");
+
+    Data = Data.replace(/LIT-A/g, "LIT-A ");
+    Data = Data.replace(/LIT-B/g, "LIT-B ");
+    Data = Data.replace(/LIT-C/g, "LIT-C ");
+
+
+    Data = Data.replace(/HBI-A/g, "HBI-A ");
+    Data = Data.replace(/HBI-B/g, "HBI-B ");
+    Data = Data.replace(/HBI-C/g, "HBI-C ");
+
+
+    Data = Data.replace(/CZE-A/g, "CZE-A ");
+    Data = Data.replace(/CZE-B/g, "CZE-B ");
+    Data = Data.replace(/CZE-C/g, "CZE-C ");
+
+    Data = Data.replace(/ENG-A/g, "ENG-A ");
+    Data = Data.replace(/ENG-B/g, "ENG-B ");
+    Data = Data.replace(/ENG-C/g, "ENG-C ");
+
+    Data = Data.replace(/FRE-A/g, "FRE-A ");
+    Data = Data.replace(/FRE-B/g, "FRE-B ");
+    Data = Data.replace(/FRE-C/g, "FRE-C ");
+
+    Data = Data.replace(/AMA-A/g, "AMA-A ");
+    Data = Data.replace(/AMA-B/g, "AMA-B ");
+    Data = Data.replace(/AMA-C/g, "AMA-C ");
+
+    Data = Data.replace(/CSC-A/g, "CSC-A ");
+    Data = Data.replace(/CSC-B/g, "CSC-B ");
+    Data = Data.replace(/CSC-C/g, "CSC-C ");
+
+    Data = Data.replace(/SBEF-A/g, "SBEF-A ");
+    Data = Data.replace(/SBEF-B/g, "SBEF-B ");
+    Data = Data.replace(/SBEF-C/g, "SBEF-C ");
+    console.clear()
     console.log(Data);
 
 });

@@ -151,6 +151,7 @@ pdf(dataBuffer).then(function (data) {
         finalData = finalData.split('Centre No,');
         var newData = [];
         finalData.forEach(data => {
+            // data = data.append(',');
             newData.push(data.split(','));
         })
          newData.shift();
@@ -158,14 +159,21 @@ pdf(dataBuffer).then(function (data) {
          newData.forEach(data => {
              let dt = data.splice(8);
              lastData.push(dt);
+             
          })
 
          var ld = [];
 
          lastData.forEach(data => {
-            ld[...data];
+            // for(let i = 0; i < data.length; i++){
+            //     ld.push(data[i])
+            // }
+            let arr = data;
+            arr[arr.length - 1] = arr[arr.length - 1] + ',';
+            ld.push(...arr)
          })
-        res.send(lastData)
+
+        res.send(ld.join().replace(',,/g',','))
     }); 
     
     app.listen(4000);

@@ -35,17 +35,18 @@ pdf(dataBuffer).then(function (data) {
 
     // Other modifications on data
     Data = Data.replace(/\n/g, "");
+
     Data = Data.replace(/\d+of\d+\w+/g, "");
     Data = Data.replace(/Passed In \d+ Subjects: \d+/g, "");
     Data = Data.replace(/Passed In \d+ Subjects:\d+/g, "");
     Data = Data.replace(/ In \d+ Subjects: \d+/g, "");
-    Data = Data.replace(/Sanctioned : \d+/g, "\n");
-    Data = Data.replace(/Centre No:  /g, '\n\n\n\n"Centre No": ');
-    Data = Data.replace(/Regist:/g, '\nRegist:');
-    Data = Data.replace(/Sat for 2 or more Subjects:/g, '\nSat for 2 or more Subjects: ');
+    // Data = Data.replace(/Sanctioned : \d+/g, "\n");
+    // Data = Data.replace(/Centre No:  /g, '\n\n\n\n"Centre No": ');
+    // Data = Data.replace(/Regist:/g, '\nRegist:');
+    // Data = Data.replace(/Sat for 2 or more Subjects:/g, '\nSat for 2 or more Subjects: ');
     Data = Data.replace(/Results of Successful Candidates In Order Of Merit/g, "");
-    Data = Data.replace(/% Passed : /g, '\n%Passed: ');
-    Data = Data.replace(/ Passed : /g, '\nPassed: ');
+    // Data = Data.replace(/% Passed : /g, '\n%Passed: ');
+    // Data = Data.replace(/ Passed : /g, '\nPassed: ');
     Data = Data.replace(/\(\d+\)/g, "");
     Data = Data.replace(/\(/g, "");
 
@@ -140,9 +141,31 @@ pdf(dataBuffer).then(function (data) {
     Data = Data.replace(/SBEF-A/g, "SBEF-A ");
     Data = Data.replace(/SBEF-B/g, "SBEF-B ");
     Data = Data.replace(/SBEF-C/g, "SBEF-C ");
+
+    Data = Data.replace(/\d+/g, "");
+
     app.use('/',(req,res,next) => {
         // res.send(content)
-        res.send(Data)
+        let finalData = Data.replace('\n/g','').split(':');
+        finalData = finalData.join();
+        finalData = finalData.split('Centre No,');
+        var newData = [];
+        finalData.forEach(data => {
+            newData.push(data.split(','));
+        })
+         newData.shift();
+         var lastData = [];
+         newData.forEach(data => {
+             let dt = data.splice(8);
+             lastData.push(dt);
+         })
+
+         var ld = [];
+
+         lastData.forEach(data => {
+            ld[...data];
+         })
+        res.send(lastData)
     }); 
     
     app.listen(4000);

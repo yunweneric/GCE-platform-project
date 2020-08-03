@@ -1,6 +1,17 @@
 // Loading Dependencies
 const fs = require('fs');
 const pdf = require('pdf-parse');
+const express = require('express');
+
+const app = express();
+
+// const router = app.router();
+
+// app.use('/',(req,res,next) => {
+//     res.send('HEllo WOrld')
+// }); 
+
+// app.listen(4000);
 
 // Loading pdf
 // let dataBuffer = fs.readFileSync('pdfs/2019-algen.pdf');
@@ -11,6 +22,9 @@ let dataBuffer = fs.readFileSync('pdfs/2019-olgen.pdf');
 pdf(dataBuffer).then(function (data) {
     // Storing extracted content
     var content = data.text;
+
+    
+    // document.getElementById('content').innerHTML = content;
 
     // Replacing banners
     let Data = content.replace(/2019 RESULTS: GCE ADVANCED LEVEL GENERAL/g, "");
@@ -126,7 +140,12 @@ pdf(dataBuffer).then(function (data) {
     Data = Data.replace(/SBEF-A/g, "SBEF-A ");
     Data = Data.replace(/SBEF-B/g, "SBEF-B ");
     Data = Data.replace(/SBEF-C/g, "SBEF-C ");
-    console.clear()
-    console.log(Data);
+    app.use('/',(req,res,next) => {
+        // res.send(content)
+        res.send(Data)
+    }); 
+    
+    app.listen(4000);
+    // console.log(Data);
 
 });

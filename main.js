@@ -23,7 +23,7 @@ pdf(dataBuffer).then(function (data) {
     // Storing extracted content
     var content = data.text;
 
-    
+
     // document.getElementById('content').innerHTML = content;
 
     // Replacing banners
@@ -144,9 +144,9 @@ pdf(dataBuffer).then(function (data) {
 
     Data = Data.replace(/\d+/g, "");
 
-    app.use('/',(req,res,next) => {
+    app.use('/', (req, res, next) => {
         // res.send(content)
-        let finalData = Data.replace('\n/g','').split(':');
+        let finalData = Data.replace('\n/g', '').split(':');
         finalData = finalData.join();
         finalData = finalData.split('Centre No,');
         var newData = [];
@@ -154,29 +154,41 @@ pdf(dataBuffer).then(function (data) {
             // data = data.append(',');
             newData.push(data.split(','));
         })
-         newData.shift();
-         var lastData = [];
-         newData.forEach(data => {
-             let dt = data.splice(8);
-             lastData.push(dt);
-             
-         })
+        newData.shift();
+        var lastData = [];
+        newData.forEach(data => {
+            let dt = data.splice(8);
+            lastData.push(dt);
 
-         var ld = [];
+        })
 
-         lastData.forEach(data => {
+        var ld = [];
+
+        lastData.forEach(data => {
             // for(let i = 0; i < data.length; i++){
             //     ld.push(data[i])
             // }
             let arr = data;
             arr[arr.length - 1] = arr[arr.length - 1] + ',';
             ld.push(...arr)
-         })
 
-        res.send(ld.join().replace(',,/g',','))
-    }); 
-    
-    app.listen(4000);
+
+
+        })
+        let list = ["BIO-A", "BIO-B", "BIO-C", "ECO-A", "ECO-B", "ECO-C", "ENG-A", "ENG-B", "ENG-C", "GEO-A", "GEO-B", "GEO-C", "HBI-A", "HBI-B", "HBI-C", "MAT-A", "MAT-B", "MAT-C", "REL-A", "REL-B", "REL-C", "SBEF-A", "SBEF-B", "SBEF-B", "SBEF-C", "AMA-A", "AMA-B", "AMA-C", "FRE-A", "FRE-B", "FRE-C", "CSC-A", "SCS-B", "CSC-C", "CZE-A", "CZE-B", "CZE-C", "COM-A", "COM-B", "COM-C", "PHY-A", "PHY-B", "PHY-C", "CHE-A", "CHE-B", "CHE-C", "HIS-A", "HIS-B", "HIS-C"]
+
+        lddata = ld.join().replace(',,/g', ',');
+
+        // res.send(list)
+       let regex1 = /[A-Z]{3}-[A-Z]{1}/gi;
+       let dfind = lddata.search(regex1);
+
+    //    res.send(lddata)
+       res.send(dfind)
+
+    });
+
+    app.listen(3000);
     // console.log(Data);
 
 });

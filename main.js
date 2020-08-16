@@ -40,6 +40,8 @@ pdf(dataBuffer).then(function (data) {
     Data = Data.replace(/Passed In \d+ Subjects: \d+/g, "");
     Data = Data.replace(/Passed In \d+ Subjects:\d+/g, "");
     Data = Data.replace(/ In \d+ Subjects: \d+/g, "");
+    // Data = Data.replace(/Passed In  Subjects/g, "");
+    Data = Data.replace(/Passed In  Subjects/g, "");
     // Data = Data.replace(/Sanctioned : \d+/g, "\n");
     // Data = Data.replace(/Centre No:  /g, '\n\n\n\n"Centre No": ');
     // Data = Data.replace(/Regist:/g, '\nRegist:');
@@ -180,15 +182,20 @@ pdf(dataBuffer).then(function (data) {
         lddata = ld.join().replace(',,/g', ',');
 
         // res.send(list)
-       let regex1 = /[A-Z]{3}-[A-Z]{1}/gi;
-       let dfind = lddata.search(regex1);
+        let regex1 = /[A-Z]{3}-[A-Z]{1}/gi;
 
-    //    res.send(lddata)
-       res.send(dfind)
+        lddata = lddata.replace(/,,/g, "")
+        lddata = lddata.replace(/\./g, "")
+        lddata = lddata.replace(/\'/g, "")
+        lddata = lddata.replace(/ ,/g, ", ")
+        //    let dfind = lddata.search(regex1);
+
+        //    res.send(lddata)
+        res.send(lddata)
 
     });
 
-    app.listen(3000);
+    app.listen(4000);
     // console.log(Data);
 
 });
